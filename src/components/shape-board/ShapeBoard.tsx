@@ -11,18 +11,23 @@ interface ShapeBoardProps {
 
 export const ShapeBoard = ({ shapes, selectedShapeId, onSelectShape }: ShapeBoardProps) => {
   return (
-    <table className={styles.board}>
+    <table className={styles.table}>
       <thead>
         <tr>
           <th>図形名称</th>
-          <th>面積(㎡)</th>
+          <th className={styles.numeric}>面積(㎡)</th>
         </tr>
       </thead>
       <tbody>
         {shapes.map((shape) => (
-          <tr key={shape.id} onClick={() => onSelectShape(selectedShapeId)}>
+          <tr
+            key={shape.id}
+            className={shape.id === selectedShapeId ? styles.selectedRow : undefined}
+            aria-selected={shape.id === selectedShapeId}
+            onClick={() => onSelectShape(shape.id)}
+          >
             <td>{getShapeName(shape.type)}</td>
-            <td>{calculateArea(shape).toFixed(4)}</td>
+            <td className={styles.numeric}>{calculateArea(shape).toFixed(4)}</td>
           </tr>
         ))}
       </tbody>
