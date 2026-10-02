@@ -1,6 +1,6 @@
-import { ShapeBoard } from '@/components/shape-board/ShapeBoard';
+import { ShapeBoard } from '@/widgets/shape-board/index';
 import { sampleShapes } from '@/data/sampleShapes';
-import type { Shape } from '@/types/shape';
+import type { Shape } from '@/entities/shape/model/shape';
 import { useState } from 'react';
 
 export const HomePage = () => {
