@@ -29,11 +29,21 @@ export const useShape = () => {
     setSelectedShapeIds((prev) => (prev.length === shapes.length ? [] : shapes.map((shape) => shape.id)));
   };
 
+  // 削除用
+  const removeSelectedShapes = () => {
+    if (selectedShapeIds.length === 0) {
+      return;
+    }
+    setShapes((prev) => prev.filter((shape) => !selectedShapeIds.includes(shape.id)));
+    setSelectedShapeIds([]);
+  };
+
   return {
     shapes,
     addShape,
     selectedShapeIds,
     toggleShapeSelection,
     toggleAllShapeSelection,
+    removeSelectedShapes,
   };
 };
