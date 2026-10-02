@@ -27,8 +27,8 @@ export const AreaTable = ({ shapes, selectedShapeIds, onToggleShape, onToggleAll
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>
-              <Checkbox onChange={onToggleAll} indeterminate={someSelected} checked={allSelected} />
+            <TableCell padding='checkbox'>
+              <Checkbox size='small' onChange={onToggleAll} indeterminate={someSelected} checked={allSelected} />
             </TableCell>
             <TableCell>図形名称</TableCell>
             <TableCell>面積(㎡)</TableCell>
@@ -43,8 +43,9 @@ export const AreaTable = ({ shapes, selectedShapeIds, onToggleShape, onToggleAll
               onClick={() => onToggleShape(shape.id)}
               sx={{ cursor: 'pointer' }}
             >
-              <TableCell>
+              <TableCell padding='checkbox'>
                 <Checkbox
+                  size='small'
                   checked={selectedShapeIds.includes(shape.id)}
                   // チェックボックス自体のクリックで行のonClickも二重発火しないようにする
                   onClick={(e) => e.stopPropagation()}
