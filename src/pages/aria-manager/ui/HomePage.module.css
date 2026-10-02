@@ -1,0 +1,19 @@
+.app {
+  margin: 0 auto;
+  max-width: 800px;
+}
+.content {
+  display: flex;
+  gap: var(--space-4);
+}
+.table {
+  flex: 1;
+  min-width: 0;
+}
+
+.control {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-width: 160px;
+}

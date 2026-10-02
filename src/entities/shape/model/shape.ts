@@ -21,3 +21,12 @@ export const shapeSchema = z.object({
 });
 
 export type Shape = z.infer<typeof shapeSchema>;
+
+// 図形追加リクエスト用
+export const newShapeSchema = shapeSchema.pick({
+  title: true,
+  type: true,
+  sideLength: true,
+});
+
+export type NewShapeInput = z.infer<typeof newShapeSchema>;
