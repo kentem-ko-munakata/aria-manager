@@ -3,9 +3,14 @@ import { Button } from '@mui/material';
 import { calculateTotalArea } from '@/entities/shape';
 import { useShape } from '../model/useShape';
 import styles from './HomePage.module.css';
+import { useState } from 'react';
+import { ShapeFormModal } from '@/widgets/shape-form-modal';
 
 export const HomePage = () => {
   const { shapes, addShape, selectedShapeIds, toggleShapeSelection, toggleAllShapeSelection } = useShape();
+
+  // モーダル開閉用
+  const [isShapeFormModal, setIsShapeFormModal] = useState(false);
 
   const totalArea = calculateTotalArea(shapes);
 
@@ -27,12 +32,13 @@ export const HomePage = () => {
           {/* 合計面積 */}
           <p>Total：{totalArea.toFixed(4)}</p>
           {/* 追加ボタン */}
-          <Button>追加</Button>
-          {/* 編集ボタン */}
+          <Button variant='contained' size='large' onClick={() => setIsShapeFormModal(true)}>
+            追加
+          </Button>
           {/* 削除ボタン */}
         </div>
       </div>
-      {/* 追加・編集フォームモーダル */}
+      <ShapeFormModal open={isShapeFormModal} onClose={() => setIsShapeFormModal(false)} onSubmit={addShape} />
     </div>
   );
 };
