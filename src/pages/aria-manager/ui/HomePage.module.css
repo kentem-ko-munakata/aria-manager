@@ -16,4 +16,5 @@
   display: flex;
   flex-direction: column;
   min-width: 160px;
+  gap: var(--space-4);
 }

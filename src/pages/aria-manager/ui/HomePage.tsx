@@ -7,7 +7,8 @@ import { useState } from 'react';
 import { ShapeFormModal } from '@/widgets/shape-form-modal';
 
 export const HomePage = () => {
-  const { shapes, addShape, selectedShapeIds, toggleShapeSelection, toggleAllShapeSelection } = useShape();
+  const { shapes, addShape, selectedShapeIds, toggleShapeSelection, toggleAllShapeSelection, removeSelectedShapes } =
+    useShape();
 
   // モーダル開閉用
   const [isShapeFormModal, setIsShapeFormModal] = useState(false);
@@ -36,6 +37,15 @@ export const HomePage = () => {
             追加
           </Button>
           {/* 削除ボタン */}
+          <Button
+            variant='contained'
+            color='error'
+            size='large'
+            disabled={selectedShapeIds.length === 0}
+            onClick={removeSelectedShapes}
+          >
+            削除{selectedShapeIds.length > 0 && `（${selectedShapeIds.length}件）`}
+          </Button>
         </div>
       </div>
       <ShapeFormModal open={isShapeFormModal} onClose={() => setIsShapeFormModal(false)} onSubmit={addShape} />
