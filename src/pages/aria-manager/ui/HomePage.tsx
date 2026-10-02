@@ -1,7 +1,7 @@
-import { ShapeBoard } from '@/widgets/shape-board/index';
 import { sampleShapes } from '@/data/sampleShapes';
 import type { Shape } from '@/entities/shape/model/shape';
 import { useState } from 'react';
+import { AreaTable } from '@/widgets/area-table';
 
 export const HomePage = () => {
   const [shapes, setShapes] = useState<Shape[]>(sampleShapes);
@@ -10,7 +10,7 @@ export const HomePage = () => {
   return (
     <div>
       <h1>面積管理システム</h1>
-      <ShapeBoard shapes={shapes} selectedShapeId={selectedShapeId} onSelectShape={setSelectedShapeId} />
+      <AreaTable shapes={shapes} selectedShapeId={selectedShapeId} onSelectShape={setSelectedShapeId} />
     </div>
   );
 };
