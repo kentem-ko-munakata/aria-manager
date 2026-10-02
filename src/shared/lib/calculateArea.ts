@@ -1,10 +1,12 @@
-import type { Shape } from '@/entities/shape/model/shape';
-
-export const calculateArea = (shape: Shape): number => {
-  switch (shape.type) {
+export const calculateArea = (type: string, sideLength: number) => {
+  switch (type) {
     case 'square':
-      return shape.sideLength ** 2;
+      return sideLength * sideLength;
     case 'triangle':
-      return (Math.sqrt(3) / 4) * shape.sideLength ** 2;
+      return (Math.sqrt(3) / 4) * sideLength ** 2;
+    case 'circle':
+      return Math.PI * (sideLength / 2) * (sideLength / 2);
+    default:
+      return 0;
   }
 };
