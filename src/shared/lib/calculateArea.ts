@@ -1,4 +1,4 @@
-import type { Shape } from '@/types/shape';
+import type { Shape } from '@/entities/shape/model/shape';
 
 export const calculateArea = (shape: Shape): number => {
   switch (shape.type) {

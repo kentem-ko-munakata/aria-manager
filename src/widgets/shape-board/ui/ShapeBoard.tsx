@@ -1,7 +1,6 @@
-import type { Shape } from '@/types/shape';
+import type { Shape } from '@/entities/shape/index';
 import styles from './ShapeBoard.module.css';
-import { getShapeName } from '@/utils/getShapeName';
-import { calculateArea } from '@/utils/calculateArea';
+import { calculateArea } from '@/shared/lib/calculateArea';
 
 interface ShapeBoardProps {
   shapes: Shape[];
@@ -26,7 +25,7 @@ export const ShapeBoard = ({ shapes, selectedShapeId, onSelectShape }: ShapeBoar
             aria-selected={shape.id === selectedShapeId}
             onClick={() => onSelectShape(shape.id)}
           >
-            <td>{getShapeName(shape.type)}</td>
+            <td>{shape.type}</td>
             <td className={styles.numeric}>{calculateArea(shape).toFixed(4)}</td>
           </tr>
         ))}
