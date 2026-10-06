@@ -1,32 +1,32 @@
-# React + TypeScript + Vite
+# 面積管理システム
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+図形と辺の長さを追加し、追加した図形の面積および図形の合計面積を出力するシステム
 
-Currently, two official plugins are available:
+背景：FE研修の題材として面積管理システムを作成
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 画面一覧
 
-## React Compiler
+### メイン画面
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- 図形の一覧表示
+- 合計面積表示
+- 追加ボタン
+- 削除ボタン
 
-## Expanding the Oxlint configuration
+![メイン画面](./public/MainPage.png)
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+### サブ画面
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+![サブ画面](./public/SubPage.png)
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+- 追加フォーム
+  - ラジオボタン
+  - フォーム
+  - OK/キャンセルボタン
+
+## 機能
+
+- 図形の一覧表示
+- 合計面積の表示
+- 図形追加
+- 図形削除
